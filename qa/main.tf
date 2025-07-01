@@ -67,3 +67,30 @@ module "cloud-events-documentation" {
   tags       = var.tags
 }
 
+module "cloud-instrument" {
+  source     = "../modules/Cloud-Instrument"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}
+
+module "cloud-job-manager" {
+  source     = "../modules/Cloud-Job-Manager"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}
+
+module "cloud-kubernetes" {
+  source     = "../modules/Cloud-Kubernetes"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}
+
+module "cloud-organization" {
+  source     = "../modules/Cloud-Organization"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}
