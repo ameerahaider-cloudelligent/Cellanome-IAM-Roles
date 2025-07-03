@@ -94,3 +94,31 @@ module "cloud-organization" {
   env        = var.env
   tags       = var.tags
 }
+
+module "cloud-platform-frontend" {
+  source     = "../modules/Cloud-Platform-Frontend"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}
+
+module "cloud-terraform-commons" {
+  source     = "../modules/Cloud-Terraform-Commons"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}
+
+module "cloud-spotter-data-ingestion" {
+  source     = "../modules/Cloud-Spotter-Data-Ingestion"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}
+
+module "compbio-knowledgebase" {
+  source     = "../modules/Compbio-Knowledgebase"
+  account_id = var.account_id
+  env        = var.env
+  tags       = var.tags
+}

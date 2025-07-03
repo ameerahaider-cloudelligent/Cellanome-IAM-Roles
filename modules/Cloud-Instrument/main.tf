@@ -149,12 +149,13 @@ resource "aws_iam_role_policy" "inline_policy1" {
         "Effect" : "Allow",
         "Action" : "dynamodb:UpdateTimeToLive",
         "Resource" : [
-          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/dev-cloud-instrument-service-event-store-table",
-          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/qa-cloud-instrument-service-event-store-table",
-          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/int-cloud-instrument-service-event-store-table",
-          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/dev-cloud-instrument-service-telemetry-table",
-          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/qa-cloud-instrument-service-telemetry-table",
-          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/int-cloud-instrument-service-telemetry-table"
+          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/*-cloud-instrument-service-event-store-table",
+          //"arn:aws:dynamodb:us-west-1:${var.account_id}:table/qa-cloud-instrument-service-event-store-table",
+          //"arn:aws:dynamodb:us-west-1:${var.account_id}:table/int-cloud-instrument-service-event-store-table",
+          "arn:aws:dynamodb:us-west-1:${var.account_id}:table/*-cloud-instrument-service-telemetry-table",
+          //"arn:aws:dynamodb:us-west-1:${var.account_id}:table/dev-cloud-instrument-service-telemetry-table",
+          //"arn:aws:dynamodb:us-west-1:${var.account_id}:table/qa-cloud-instrument-service-telemetry-table",
+          //"arn:aws:dynamodb:us-west-1:${var.account_id}:table/int-cloud-instrument-service-telemetry-table"
         ]
       },
       {
@@ -170,9 +171,10 @@ resource "aws_iam_role_policy" "inline_policy1" {
           "eks:DescribeAddon"
         ],
         "Resource" : [
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/dev-cellanome-cloud-eks",
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/qa-cellanome-cloud-eks",
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/int-cellanome-cloud-eks"
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/dev-cellanome-cloud-eks",
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/qa-cellanome-cloud-eks",
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/int-cellanome-cloud-eks"
+          "arn:aws:eks:us-west-1:${var.account_id}:cluster/*cellanome-cloud-eks"
         ]
       },
       {
@@ -184,12 +186,14 @@ resource "aws_iam_role_policy" "inline_policy1" {
           "events:DeleteArchive"
         ],
         "Resource" : [
-          "arn:aws:events:us-west-1:${var.account_id}:event-bus/dev-main",
-          "arn:aws:events:us-west-1:${var.account_id}:event-bus/qa-main",
-          "arn:aws:events:us-west-1:${var.account_id}:event-bus/int-main",
-          "arn:aws:events:us-west-1:${var.account_id}:archive/dev-cloud-instrument-service-register-scan",
-          "arn:aws:events:us-west-1:${var.account_id}:archive/qa-cloud-instrument-service-register-scan",
-          "arn:aws:events:us-west-1:${var.account_id}:archive/int-cloud-instrument-service-register-scan"
+          "arn:aws:events:us-west-1:${var.account_id}:event-bus/*-main",
+          //"arn:aws:events:us-west-1:${var.account_id}:event-bus/dev-main",
+          //"arn:aws:events:us-west-1:${var.account_id}:event-bus/qa-main",
+          //"arn:aws:events:us-west-1:${var.account_id}:event-bus/int-main",
+          "arn:aws:events:us-west-1:${var.account_id}:archive/*-cloud-instrument-service-register-scan",
+          //"arn:aws:events:us-west-1:${var.account_id}:archive/dev-cloud-instrument-service-register-scan",
+          //"arn:aws:events:us-west-1:${var.account_id}:archive/qa-cloud-instrument-service-register-scan",
+          //"arn:aws:events:us-west-1:${var.account_id}:archive/int-cloud-instrument-service-register-scan"
         ]
       },
       {
@@ -197,9 +201,10 @@ resource "aws_iam_role_policy" "inline_policy1" {
         "Effect" : "Allow",
         "Action" : "events:DescribeEventBus",
         "Resource" : [
-          "arn:aws:events:us-west-1:${var.account_id}:event-bus/dev-main",
-          "arn:aws:events:us-west-1:${var.account_id}:event-bus/qa-main",
-          "arn:aws:events:us-west-1:${var.account_id}:event-bus/int-main"
+          "arn:aws:events:us-west-1:${var.account_id}:event-bus/*-main",
+          //"arn:aws:events:us-west-1:${var.account_id}:event-bus/dev-main",
+          //"arn:aws:events:us-west-1:${var.account_id}:event-bus/qa-main",
+          //"arn:aws:events:us-west-1:${var.account_id}:event-bus/int-main"
         ]
       },
       {
@@ -213,9 +218,10 @@ resource "aws_iam_role_policy" "inline_policy1" {
         "Effect" : "Allow",
         "Action" : "logs:CreateLogGroup",
         "Resource" : [
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/dev-cellanome-cloud-eks",
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/qa-cellanome-cloud-eks",
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/int-cellanome-cloud-eks"
+          "arn:aws:eks:us-west-1:${var.account_id}:cluster/*-cellanome-cloud-eks",
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/dev-cellanome-cloud-eks",
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/qa-cellanome-cloud-eks",
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/int-cellanome-cloud-eks"
         ]
       },
       {
@@ -223,9 +229,10 @@ resource "aws_iam_role_policy" "inline_policy1" {
         "Effect" : "Allow",
         "Action" : "logs:ListTagsForResource",
         "Resource" : [
-          "arn:aws:logs:us-west-1:${var.account_id}:log-group:/aws/lambda/dev-cloud-instrument-service-*",
-          "arn:aws:logs:us-west-1:${var.account_id}:log-group:/aws/lambda/qa-cloud-instrument-service-*",
-          "arn:aws:logs:us-west-1:${var.account_id}:log-group:/aws/lambda/int-cloud-instrument-service-*",
+          "arn:aws:logs:us-west-1:${var.account_id}:log-group:/aws/lambda/*-cloud-instrument-service-*",
+          //"arn:aws:logs:us-west-1:${var.account_id}:log-group:/aws/lambda/dev-cloud-instrument-service-*",
+          //"arn:aws:logs:us-west-1:${var.account_id}:log-group:/aws/lambda/qa-cloud-instrument-service-*",
+          //"arn:aws:logs:us-west-1:${var.account_id}:log-group:/aws/lambda/int-cloud-instrument-service-*",
           "arn:aws:logs:us-west-1:${var.account_id}:log-group::log-stream:*"
         ]
       },
@@ -234,9 +241,11 @@ resource "aws_iam_role_policy" "inline_policy1" {
         "Effect" : "Allow",
         "Action" : "sqs:deletequeue",
         "Resource" : [
-          "arn:aws:sqs:us-west-1:${var.account_id}:dev-cloud-instrument-service-iot-message-queue",
-          "arn:aws:sqs:us-west-1:${var.account_id}:qa-cloud-instrument-service-iot-message-queue",
-          "arn:aws:sqs:us-west-1:${var.account_id}:int-cloud-instrument-service-iot-message-queue"
+          "arn:aws:sqs:us-west-1:${var.account_id}:*-cloud-instrument-service-iot-message-queue",
+
+          //"arn:aws:sqs:us-west-1:${var.account_id}:dev-cloud-instrument-service-iot-message-queue",
+          //"arn:aws:sqs:us-west-1:${var.account_id}:qa-cloud-instrument-service-iot-message-queue",
+          //"arn:aws:sqs:us-west-1:${var.account_id}:int-cloud-instrument-service-iot-message-queue"
         ]
       },
       {
@@ -244,9 +253,11 @@ resource "aws_iam_role_policy" "inline_policy1" {
         "Effect" : "Allow",
         "Action" : "eks:Describe*",
         "Resource" : [
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/dev-cellanome-cloud-eks",
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/qa-cellanome-cloud-eks",
-          "arn:aws:eks:us-west-1:${var.account_id}:cluster/int-cellanome-cloud-eks"
+          "arn:aws:eks:us-west-1:${var.account_id}:cluster/*-cellanome-cloud-eks",
+
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/dev-cellanome-cloud-eks",
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/qa-cellanome-cloud-eks",
+          //"arn:aws:eks:us-west-1:${var.account_id}:cluster/int-cellanome-cloud-eks"
         ]
       },
       {
@@ -263,12 +274,14 @@ resource "aws_iam_role_policy" "inline_policy1" {
         "Effect" : "Allow",
         "Action" : "glue:*",
         "Resource" : [
-          "arn:aws:glue:us-west-1:${var.account_id}:registry/dev-main",
-          "arn:aws:glue:us-west-1:${var.account_id}:registry/qa-main",
-          "arn:aws:glue:us-west-1:${var.account_id}:registry/int-main",
-          "arn:aws:glue:us-west-1:${var.account_id}:schema/dev-main/*",
-          "arn:aws:glue:us-west-1:${var.account_id}:schema/qa-main/*",
-          "arn:aws:glue:us-west-1:${var.account_id}:schema/int-main/*"
+          "arn:aws:glue:us-west-1:${var.account_id}:registry/*-main",
+          //"arn:aws:glue:us-west-1:${var.account_id}:registry/dev-main",
+          //"arn:aws:glue:us-west-1:${var.account_id}:registry/qa-main",
+          //"arn:aws:glue:us-west-1:${var.account_id}:registry/int-main",
+          "arn:aws:glue:us-west-1:${var.account_id}:schema/*-main/*",
+          //"arn:aws:glue:us-west-1:${var.account_id}:schema/dev-main/*",
+          //"arn:aws:glue:us-west-1:${var.account_id}:schema/qa-main/*",
+          //"arn:aws:glue:us-west-1:${var.account_id}:schema/int-main/*"
         ]
       },
       {
